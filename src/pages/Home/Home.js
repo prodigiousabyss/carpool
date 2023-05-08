@@ -1,7 +1,54 @@
+// import { styled } from '@mui/material';
+import { DatePicker } from '@mui/x-date-pickers';
+import { useState } from 'react';
+
+// const MuiDatePicker = styled(DatePicker)`
+//     margin-top: 1rem;
+//     '& .MuiInputBase-root': {
+//         border-radius: 2rem;
+//     },
+// `;
+
+const highest = 8;
+const lowest = 1;
+
 export const Home = () => {
+  const [count, setCount] = useState(0);
+
+  const increaseCount = () => {
+    if (count < highest) setCount(count + 1);
+  };
+  const decreaseCount = () => {
+    if (count > lowest) setCount(count - 1);
+  };
+
   return (
     <div className="w-full pt-1.5 pl-14 flex items-center flex-1">
-      <div className="h-[35rem] bg-white drop-shadow-md w-96 rounded-2xl">Container</div>
+      <div className="h-[35rem] bg-white drop-shadow-md w-96 rounded-2xl pt-7 flex flex-col items-center">
+        <p className="m-4 font-bold text-lg">Where would you like to go?</p>
+        <input type="text" placeholder="Leaving from..." className="bg-gray-100 w-80 h-11 rounded-lg pl-4 border-2" />
+        <input type="text" placeholder="Going to..." className="bg-gray-100 w-80 h-11 rounded-lg pl-4 mt-6 border-2" />
+        <div className="mt-6">
+          <button className="text-black w-72 h-11 bg-gray-100 rounded-lg border-2">
+            {count === 1 ? 'Passenger' : 'Passengers'}
+            <button className="m-2 text-white bg-gray-400 rounded-full w-6 h-6" onClick={decreaseCount}>
+              -
+            </button>
+            {count}
+            <button className="m-2 text-white bg-gray-400 rounded-full w-6 h-6" onClick={increaseCount}>
+              +
+            </button>
+          </button>
+        </div>
+        <DatePicker
+          className="mt-6"
+          label="Select date"
+          sx={{
+            margin: 4,
+          }}
+        />
+        <button className="mt-6 bg-black text-white w-72 h-11 rounded-md">Search</button>
+      </div>
     </div>
   );
 };
