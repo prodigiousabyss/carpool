@@ -1,13 +1,5 @@
-// import { styled } from '@mui/material';
 import { DatePicker } from '@mui/x-date-pickers';
 import { useState } from 'react';
-
-// const MuiDatePicker = styled(DatePicker)`
-//     margin-top: 1rem;
-//     '& .MuiInputBase-root': {
-//         border-radius: 2rem;
-//     },
-// `;
 
 const highest = 8;
 const lowest = 1;
@@ -29,7 +21,7 @@ export const Home = () => {
         <input type="text" placeholder="Leaving from..." className="bg-gray-100 w-80 h-11 rounded-lg pl-4 border-2" />
         <input type="text" placeholder="Going to..." className="bg-gray-100 w-80 h-11 rounded-lg pl-4 mt-6 border-2" />
         <div className="mt-6">
-          <button className="text-black w-72 h-11 bg-gray-100 rounded-lg border-2">
+          <div className="text-black w-72 h-11 bg-gray-100 rounded-lg border-2">
             {count === 1 ? 'Passenger' : 'Passengers'}
             <button className="m-2 text-white bg-gray-400 rounded-full w-6 h-6" onClick={decreaseCount}>
               -
@@ -38,7 +30,7 @@ export const Home = () => {
             <button className="m-2 text-white bg-gray-400 rounded-full w-6 h-6" onClick={increaseCount}>
               +
             </button>
-          </button>
+          </div>
         </div>
         <DatePicker
           className="mt-6"
