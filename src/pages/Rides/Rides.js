@@ -1,3 +1,7 @@
 export const Rides = () => {
-  return <div>Rides</div>;
+  return (
+  <div>
+    Past Rides
+  </div>
+  )
 };

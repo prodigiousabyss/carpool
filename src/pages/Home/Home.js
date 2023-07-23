@@ -11,13 +11,21 @@ export const Home = () => {
   const [leaving, setLeaving] = useState("");
   const [going, setGoing] = useState("");
   const [results, setResults] = useState([]);
-  const [show, setShow] = useState(false);
+  const [showLeaving, setShowLeaving] = useState(false);
+  const [showGoing, setShowGoing] = useState(false);
+
 
   useEffect(() => {
     if (leaving === "") {
-      setShow(false)
+      setShowLeaving(false)
     } 
   }, [leaving])
+
+  useEffect(() => {
+    if(going === "") {
+      setShowGoing(false)
+    } 
+  }, [going])
 
 
   const increaseCount = () => {
@@ -29,22 +37,30 @@ export const Home = () => {
    
   const handleLeaving = (event) => {
     setLeaving(event.target.value);
-    setShow(true)
+    setShowLeaving(true)
       const arr = cities.filter(el => el.toLowerCase().includes(event.target.value.toLowerCase()))
       setResults(arr);
   }
 
   const handleGoing = (event) => {
     setGoing(event.target.value);
+    setShowGoing(true)
+    const arr2 = cities.filter(el => el.toLowerCase().includes(event.target.value.toLowerCase()))
+    setResults(arr2);
   }
 
   const handleSearch = () => {
     console.log(count, leaving, going);
   }
 
-  const handleResultSelect = (val) => {
+  const handleResultSelectGoing = (val) => {
+    setGoing(val)
+    setShowGoing(false)
+  }
+
+  const handleResultSelectLeaving = (val) => {
     setLeaving(val)
-    setShow(false)
+    setShowLeaving(false)
   }
 
   return (
@@ -53,11 +69,16 @@ export const Home = () => {
         <p className="m-4 font-bold text-lg">Where would you like to go?</p>
         <div className='relative'>
           <input type="text" value={leaving} placeholder="Leaving from..." className="bg-gray-100 w-80 h-11 rounded-lg pl-4 border-2" onChange={handleLeaving} />
-          {show ? <div className='absolute w-full h-max bg-black text-white border-1 flex flex-col'>
-            {results.map(r => <button onClick={() => handleResultSelect(r)}>{r}</button>)}
+          {showLeaving ? <div className='absolute w-full h-max bg-black text-white border-1 flex flex-col'>
+            {results.map(r => <button onClick={() => handleResultSelectLeaving(r)}>{r}</button>)}
           </div> : null}
         </div>
+        <div className='relative'>
         <input type="text" value ={going} placeholder="Going to..." className="bg-gray-100 w-80 h-11 rounded-lg pl-4 mt-6 border-2" onChange={handleGoing}/>
+        {showGoing ? <div className='absolute w-full h-max bg-black text-white border-1 flex flex-col'>
+            {results.map(r => <button onClick={() => handleResultSelectGoing(r)}>{r}</button>)}
+          </div> : null}
+        </div>
         <div className="mt-6">
           <div className="text-black w-72 h-11 bg-gray-100 rounded-lg border-2" >
             {count === 1 ? 'Passenger' : 'Passengers'}
