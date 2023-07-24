@@ -1,5 +1,6 @@
 import { DatePicker } from '@mui/x-date-pickers';
 import { useEffect, useState } from 'react';
+import map from "../../Images/map.jpg"
 
 const highest = 8;
 const lowest = 1;
@@ -64,7 +65,7 @@ export const Home = () => {
   }
 
   return (
-    <div className="w-full pt-1.5 pl-14 flex items-center flex-1">
+    <div style={{'--image-url': `url(${map})`}} className="w-full pt-1.5 pl-14 flex items-center flex-1 bg-[image:var(--image-url)] bg-contain">
       <div className="h-[35rem] bg-white drop-shadow-md w-96 rounded-2xl pt-7 flex flex-col items-center">
         <p className="m-4 font-bold text-lg">Where would you like to go?</p>
         <div className='relative'>
