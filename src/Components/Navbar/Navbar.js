@@ -1,7 +1,7 @@
-import { Modal } from '../Components/Modal';
+import { Modal } from '../Modal';
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import { Logo } from '../atoms/Icon/SVG/Logo';
+import { Logo } from '../../atoms/Icon/SVG/Logo';
 
 export const Navbar = () => {
   const [show, setShow] = useState(false);
