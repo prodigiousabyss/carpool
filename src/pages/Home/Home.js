@@ -1,6 +1,7 @@
 import { DatePicker } from '@mui/x-date-pickers';
 import { useEffect, useState } from 'react';
 import map from "../../Images/map.jpg"
+import { NavLink } from 'react-router-dom';
 
 const highest = 8;
 const lowest = 1;
@@ -50,9 +51,9 @@ export const Home = () => {
     setResults(arr2);
   }
 
-  const handleSearch = () => {
-    console.log(count, leaving, going);
-  }
+  // const handleSearch = () => {
+  //   console.log(count, leaving, going);
+  // }
 
   const handleResultSelectGoing = (val) => {
     setGoing(val)
@@ -98,9 +99,8 @@ export const Home = () => {
           sx={{
             margin: 4,
           }}/>
-        <button className="mt-6 bg-black text-white w-72 h-11 rounded-md"
-        onClick={handleSearch}
-        >Search</button>
+        <NavLink to="/requestRides" className="mt-6 bg-black w-[16rem] text-white p-3 rounded-md"
+        >Search</NavLink>
       </div>
     </div>
   );
