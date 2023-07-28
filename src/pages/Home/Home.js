@@ -15,20 +15,26 @@ export const Home = () => {
   const [results, setResults] = useState([]);
   const [showLeaving, setShowLeaving] = useState(false);
   const [showGoing, setShowGoing] = useState(false);
+  const [isDisabled, setIsDisabled] = useState(false);
 
 
   useEffect(() => {
     if (leaving === "") {
-      setShowLeaving(false)
+      setShowLeaving(false);
     } 
   }, [leaving])
 
   useEffect(() => {
     if(going === "") {
-      setShowGoing(false)
+      setShowGoing(false);
     } 
   }, [going])
 
+  const handleDisabling = () => {
+    if(going === ""){
+      setIsDisabled(true)
+    }
+  }
 
   const increaseCount = () => {
     if (count < highest) setCount(count + 1);
@@ -47,8 +53,8 @@ export const Home = () => {
   const handleGoing = (event) => {
     setGoing(event.target.value);
     setShowGoing(true)
-    const arr2 = cities.filter(el => el.toLowerCase().includes(event.target.value.toLowerCase()))
-    setResults(arr2);
+    const arr1 = cities.filter(el => el.toLowerCase().includes(event.target.value.toLowerCase()))
+    setResults(arr1);
   }
 
   // const handleSearch = () => {
@@ -70,8 +76,8 @@ export const Home = () => {
       <div className="h-[35rem] bg-white drop-shadow-md w-96 rounded-2xl pt-7 flex flex-col items-center">
         <p className="m-4 font-bold text-lg">Where would you like to go?</p>
         <div className='relative'>
-          <input type="text" value={leaving} placeholder="Leaving from..." className="bg-gray-100 w-80 h-11 rounded-lg pl-4 border-2" onChange={handleLeaving} />
-          {showLeaving ? <div className='absolute w-full h-max bg-black text-white border-1 flex flex-col'>
+        <input type="text" value ={leaving} placeholder="Leaving from..." className="bg-gray-100 w-80 h-11 rounded-lg pl-4 mt-6 border-2" onChange={handleLeaving}/>
+        {showLeaving ? <div className='absolute w-full h-max bg-black text-white border-1 flex flex-col'>
             {results.map(r => <button onClick={() => handleResultSelectLeaving(r)}>{r}</button>)}
           </div> : null}
         </div>
@@ -99,7 +105,7 @@ export const Home = () => {
           sx={{
             margin: 4,
           }}/>
-        <NavLink to="/requestRides" className="mt-6 bg-black w-[16rem] text-white p-3 rounded-md"
+        <NavLink to="/requestRides" onClick={handleDisabling} isDisabled={isDisabled} className="mt-6 bg-black w-[16rem] text-white p-3 rounded-md"
         >Search</NavLink>
       </div>
     </div>
