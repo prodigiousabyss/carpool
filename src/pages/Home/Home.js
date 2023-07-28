@@ -77,7 +77,7 @@ export const Home = () => {
         <p className="m-4 font-bold text-lg">Where would you like to go?</p>
         <div className='relative'>
         <input type="text" value ={leaving} placeholder="Leaving from..." className="bg-gray-100 w-80 h-11 rounded-lg pl-4 mt-6 border-2" onChange={handleLeaving}/>
-        {showLeaving ? <div className='absolute w-full h-max bg-black text-white border-1 flex flex-col'>
+        {showLeaving ? <div className='absolute w-full h-max bg-black text-white border-1 flex flex-col z-10'>
             {results.map(r => <button onClick={() => handleResultSelectLeaving(r)}>{r}</button>)}
           </div> : null}
         </div>
