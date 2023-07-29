@@ -1,4 +1,3 @@
-import { DatePicker } from '@mui/x-date-pickers';
 import { useEffect, useState } from 'react';
 import map from "../../Images/map.jpg"
 import { NavLink } from 'react-router-dom';
@@ -15,13 +14,13 @@ export const Home = () => {
   const [results, setResults] = useState([]);
   const [showLeaving, setShowLeaving] = useState(false);
   const [showGoing, setShowGoing] = useState(false);
-  const [isDisabled, setIsDisabled] = useState(false);
 
+  const isDisabled = leaving.length === 0 || going.length === 0;
 
   useEffect(() => {
     if (leaving === "") {
       setShowLeaving(false);
-    } 
+    }
   }, [leaving])
 
   useEffect(() => {
@@ -30,9 +29,9 @@ export const Home = () => {
     } 
   }, [going])
 
-  const handleDisabling = () => {
-    if(going === ""){
-      setIsDisabled(true)
+  const handleDisabling = (event) => {
+    if (isDisabled) {
+      event.preventDefault()
     }
   }
 
@@ -99,13 +98,8 @@ export const Home = () => {
             </button>
           </div>
         </div>
-        <DatePicker 
-          className="mt-6"
-          label="Select date"
-          sx={{
-            margin: 4,
-          }}/>
-        <NavLink to="/requestRides" onClick={handleDisabling} isDisabled={isDisabled} className="mt-6 bg-black w-[16rem] text-white p-3 rounded-md"
+        <input type="date" />
+          <NavLink to="/requestRides" onClick={handleDisabling} className="mt-6 bg-black w-[16rem] text-white p-3 rounded-md"
         >Search</NavLink>
       </div>
     </div>
