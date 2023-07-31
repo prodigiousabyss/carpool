@@ -87,7 +87,7 @@ export const Home = () => {
           </div> : null}
         </div>
         <div className="mt-6">
-          <div className="text-black w-72 h-11 bg-gray-100 rounded-lg border-2" >
+          <div className="text-black w-80 h-11 bg-gray-100 rounded-lg border-2" >
             {count === 1 ? 'Passenger' : 'Passengers'}
             <button className="m-2 text-white bg-gray-400 rounded-full w-6 h-6" onClick={decreaseCount}>
               -
@@ -98,7 +98,7 @@ export const Home = () => {
             </button>
           </div>
         </div>
-        <input type="date" />
+        <input type="date" className='mt-6 border-2 rounded-md p-2 w-80' />
           <NavLink to="/requestRides" onClick={handleDisabling} className="mt-6 bg-black w-[16rem] text-white p-3 rounded-md"
         >Search</NavLink>
       </div>
