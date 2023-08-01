@@ -51,7 +51,7 @@ export const Rides = () => {
       <NavLink to="/" className="w-max p-2 bg-black rounded-md">Reserve your ride</NavLink>
       </div>
       {myRides.map(mr => <div className="border-2 border-gray-400 rounded-2xl w-full h-72 my-6"> 
-      <div className="flex mt-4 px-[0.7rem] font-medium">
+      <div className="flex mt-4 px-[0.7rem] space-x-[22rem] font-medium">
         <div>{mr.type}</div>
         <div>{mr.dateTime}</div>
       </div>
