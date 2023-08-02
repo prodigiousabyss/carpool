@@ -98,7 +98,7 @@ export const Home = () => {
             </button>
           </div>
         </div>
-        <input type="date" className='mt-6 border-2 rounded-md p-2 w-80' />
+        <input type="date" className='mt-6 border-2 rounded-md p-2 w-80 ' />
           <NavLink to="/requestRides" onClick={handleDisabling} className="mt-6 bg-black w-[16rem] text-white p-3 rounded-md"
         >Search</NavLink>
       </div>
