@@ -4,25 +4,37 @@ export const RequestRides = () => {
         {
             driverName: "Niko",
             isVerified: "Verified",
-            dateAndTime: "6:00PM",
             tripFare: "500₹",
+            LeavingFrom: "Delhi",
+            GoingTo: "Jaipur",
+            LeavingTime: "6:00PM",
+            ArrivingTime: "10:00PM",
         },
         {
             driverName: "Olive",
             isVerified: "Not Verified",
-            dateAndTime: "7:00PM",
+            LeavingFrom: "Delhi",
+            GoingTo: "Jaipur",
+            LeavingTime: "6:00PM",
+            ArrivingTime: "10:00PM",
             tripFare: "400₹",
         },
         {
             driverName: "Slyvia",
             isVerified: "Verified",
-            dateAndTime: "3:00PM",
+            LeavingFrom: "Delhi",
+            GoingTo: "Jaipur",
+            LeavingTime: "6:00PM",
+            ArrivingTime: "10:00PM",
             tripFare: "300₹",
         },
         {
             driverName: "Ash",
             isVerified: "Verified",
-            dateAndTime: "2:00PM",
+            LeavingFrom: "Delhi",
+            GoingTo: "Jaipur",
+            LeavingTime: "6:00PM",
+            ArrivingTime: "10:00PM",
             tripFare: "600₹",
         }
     ]
@@ -33,16 +45,20 @@ export const RequestRides = () => {
             <div>Left</div>
             <div>
         {rideOptions.map(rd => 
-        <div className="border-2 w-[36rem] my-4 rounded-xl"> 
-            <div className="font-bold text-lg">
-                {rd.tripFare}
+        <div className="border-2 w-[36rem] h-[10rem] my-4 rounded-xl"> 
+            <div className="flex flex-col">
+                    <div className="">{rd.LeavingTime}</div>
+                    <div>{rd.ArrivingTime}</div>
+                <div>
+                    <div>{rd.LeavingFrom}</div>
+                    <div>{rd.GoingTo}</div>
+                </div>
+                    <div>{rd.tripFare}</div>
+                <div></div>
             </div>
             <div className="flex mt-4 px-[0.7rem] space-x-[22rem] font-medium">
                 <div>{rd.driverName}</div>
                 <div>{rd.isVerified}</div>
-            </div>
-            <div>
-                {rd.dateAndTime}
             </div>
         </div>)}
             </div>
