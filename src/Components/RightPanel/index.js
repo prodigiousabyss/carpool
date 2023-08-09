@@ -1,1 +1,1 @@
-export * from "./rightPanel";
+export * from './rightPanel';

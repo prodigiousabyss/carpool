@@ -6,9 +6,8 @@ import { Logo } from '../../atoms/Icon/SVG/Logo';
 export const Navbar = () => {
   const [show, setShow] = useState(false);
 
-
   return (
-    <div className="text-white bg-black drop-shadow-md h-16 flex items-center px-8 justify-between">
+    <div className="text-white bg-black drop-shadow-md h-16 flex items-center px-8 justify-between z-50">
       <div className="flex items-center">
         <NavLink to="/">
           <Logo className="h-max w-24 left-0 m-4" />
@@ -25,12 +24,10 @@ export const Navbar = () => {
         </NavLink>
       </div>
       <div>
-      <button className="relative" onClick={() => setShow((value) => !value)}>
-        Log In
-      </button>
-      <Modal
-        show={show} 
-        setShow={setShow} />
+        <button className="relative" onClick={() => setShow((value) => !value)}>
+          Log In
+        </button>
+        <Modal show={show} setShow={setShow} />
       </div>
     </div>
   );
