@@ -5,6 +5,7 @@ import { Home } from './pages/Home';
 import { Profile } from './pages/Profile/Profile';
 import { Rides } from './pages/Rides/Rides';
 import { RequestRides } from './pages/RequestRide/requestRides';
+import { LogIn } from './pages/LogIn/LogIn';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/requestRides" element={<RequestRides />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/rides" element={<Rides />} />
+        <Route path="/login" element={<LogIn />}/>
       </Routes>
     </div>
   );

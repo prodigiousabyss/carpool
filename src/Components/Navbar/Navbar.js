@@ -24,9 +24,9 @@ export const Navbar = () => {
         </NavLink>
       </div>
       <div>
-        <button className="relative" onClick={() => setShow((value) => !value)}>
+        <NavLink to="/login" className="relative" onClick={() => setShow((value) => !value)}>
           Log In
-        </button>
+        </NavLink>
         <Modal show={show} setShow={setShow} />
       </div>
     </div>
