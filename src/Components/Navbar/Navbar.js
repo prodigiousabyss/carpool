@@ -24,9 +24,7 @@ export const Navbar = () => {
         </NavLink>
       </div>
       <div>
-        <NavLink to="/login" >
-          Log In
-        </NavLink>
+        <NavLink to="/login">Log In</NavLink>
         <Modal show={show} setShow={setShow} />
       </div>
     </div>

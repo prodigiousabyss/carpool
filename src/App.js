@@ -5,19 +5,35 @@ import { Home } from './pages/Home';
 import { Profile } from './pages/Profile/Profile';
 import { Rides } from './pages/Rides/Rides';
 import { RequestRides } from './pages/RequestRide/requestRides';
-import { LogIn } from './pages/LogIn/LogIn';
+import { LoginForm } from './pages/LogIn/LogIn';
+import { useEffect } from 'react';
 
 function App() {
+  const isLoggedIn = JSON.parse(localStorage.getItem('isLoggedIn'));
+
+  useEffect(() => {
+    if (!isLoggedIn) {
+      window.location.href = 'http://localhost:3000/#/login';
+    }
+  }, [isLoggedIn]);
+
   return (
     <div className="App bg-gray-100 flex flex-col h-full">
       <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/requestRides" element={<RequestRides />} />
-        <Route path="/profile" element={<Profile />} />
-        <Route path="/rides" element={<Rides />} />
-        <Route path="/login" element={<LogIn />}/>
-      </Routes>
+      {isLoggedIn ? (
+        <>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/requestRides" element={<RequestRides />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/rides" element={<Rides />} />
+          </Routes>
+        </>
+      ) : (
+        <Routes>
+          <Route path="/login" element={<LoginForm />} />
+        </Routes>
+      )}
     </div>
   );
 }
