@@ -4,10 +4,14 @@ export const LoginForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+  const handleError = () => {
+    'Invalid Ceredentials!';
+  };
+
   const handleContinue = () => {
     if (email === 'poojaghanghas@gmail.com' && password === 'pooja') {
       localStorage.setItem('isLoggedIn', 'true');
-      window.location.href = 'http://localhost:3000/'
+      window.location.href = 'http://localhost:3000/';
     } else {
       console.log('false');
     }
@@ -15,6 +19,7 @@ export const LoginForm = () => {
 
   return (
     <div className="z-50 h-full w-full flex justify-center flex-col mt-2">
+      <div className="text-black w-20 h-14">{handleError}</div>
       <div className="flex flex-col">
         <p className="font-bold text-xl my-4">What's your phone number or email?</p>
         <div className="my-1">

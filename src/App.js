@@ -7,6 +7,7 @@ import { Rides } from './pages/Rides/Rides';
 import { RequestRides } from './pages/RequestRide/requestRides';
 import { LoginForm } from './pages/LogIn/LogIn';
 import { useEffect } from 'react';
+import { UnauthNavbar } from './Components/UnauthenticatedNavbar/UnauthenticatedNavbar';
 
 function App() {
   const isLoggedIn = JSON.parse(localStorage.getItem('isLoggedIn'));
@@ -19,9 +20,9 @@ function App() {
 
   return (
     <div className="App bg-gray-100 flex flex-col h-full">
-      <Navbar />
       {isLoggedIn ? (
         <>
+          <Navbar />
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/requestRides" element={<RequestRides />} />
@@ -30,9 +31,12 @@ function App() {
           </Routes>
         </>
       ) : (
-        <Routes>
-          <Route path="/login" element={<LoginForm />} />
-        </Routes>
+        <>
+          <UnauthNavbar />
+          <Routes>
+            <Route path="/login" element={<LoginForm />} />
+          </Routes>
+        </>
       )}
     </div>
   );
