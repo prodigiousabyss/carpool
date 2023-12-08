@@ -14,7 +14,7 @@ export const LoginForm = () => {
   const handleContinue = () => {
     if (email === 'poojaghanghas@gmail.com' && password === 'pooja') {
       localStorage.setItem('isLoggedIn', 'true');
-      navigate("/home");
+      navigate("/");
     } else {
       console.log('false');
     }
