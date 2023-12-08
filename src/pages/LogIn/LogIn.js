@@ -1,8 +1,11 @@
 import { useState } from 'react';
+import { useNavigate } from "react-router-dom";
+
 
 export const LoginForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
   const handleError = () => {
     'Invalid Ceredentials!';
@@ -11,7 +14,7 @@ export const LoginForm = () => {
   const handleContinue = () => {
     if (email === 'poojaghanghas@gmail.com' && password === 'pooja') {
       localStorage.setItem('isLoggedIn', 'true');
-      window.location.href = 'http://localhost:3000/';
+      navigate("/home");
     } else {
       console.log('false');
     }

@@ -1,10 +1,14 @@
 import { NavLink } from 'react-router-dom';
 import { Logo } from '../../atoms/Icon/SVG/Logo';
+import { useNavigate } from "react-router-dom";
+
 
 export const Navbar = () => {
+  const navigate = useNavigate();
+
   const handleLogout = () => {
     localStorage.removeItem('isLoggedIn');
-    window.location.href = 'http://localhost:3000/login';
+    navigate("/login");  
   };
 
   return (
