@@ -6,17 +6,20 @@ import { Profile } from './pages/Profile/Profile';
 import { Rides } from './pages/Rides/Rides';
 import { RequestRides } from './pages/RequestRide/requestRides';
 import { LoginForm } from './pages/LogIn/LogIn';
+import { useNavigate } from "react-router-dom"
 import { useEffect } from 'react';
 import { UnauthNavbar } from './Components/UnauthenticatedNavbar/UnauthenticatedNavbar';
 
+
 function App() {
   const isLoggedIn = JSON.parse(localStorage.getItem('isLoggedIn'));
+  const navigate = useNavigate();
 
   useEffect(() => {
-    if (!isLoggedIn) {
-      window.location.href = 'http://localhost:3000/#/login';
+    if(!isLoggedIn) {
+      navigate("/login");
     }
-  }, [isLoggedIn]);
+  }, [isLoggedIn , navigate]);
 
   return (
     <div className="App bg-gray-100 flex flex-col h-full">
