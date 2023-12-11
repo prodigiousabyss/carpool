@@ -11,8 +11,16 @@ export const LoginForm = () => {
     'Invalid Ceredentials!';
   };
 
+  const validateEmail = (email) => {
+    return String(email)
+      .toLowerCase()
+      .match(
+        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+      );
+  };
+
   const handleContinue = () => {
-    if (email === 'poojaghanghas@gmail.com' && password === 'pooja') {
+    if (validateEmail(email) && password.length) {
       localStorage.setItem('isLoggedIn', 'true');
       navigate("/");
     } else {
